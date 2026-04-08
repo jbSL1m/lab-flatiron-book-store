@@ -43,5 +43,27 @@ const bookStore = {
     ]
 }
 
-// Write your code here!
+// select the title element and set its text content to the name of the book store
+const bookStoreTitle = document.querySelector("#header");
+bookStoreTitle.textContent = bookStore.name;
 
+bookStore.books.forEach((book) => {
+//create elements for each book 
+const bookContainer = document.createElement('li');
+const bookTitle = document.createElement('h3');
+const bookAuthor = document.createElement('p');
+const bookImage = document.createElement('img');
+
+bookTitle.textContent = book.title;
+bookAuthor.textContent = book.author;
+bookImage.src = book.imageUrl;
+
+//append the elements to the book container
+bookContainer.appendChild(bookTitle);
+bookContainer.appendChild(bookAuthor);
+bookContainer.appendChild(bookImage);
+
+//append the book container to the book list
+const bookList = document.querySelector("#book-list");
+bookList.appendChild(bookContainer);
+});
